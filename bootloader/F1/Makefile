@@ -86,6 +86,7 @@ mini-stm32v3: $(SRCS) clean gccversion build_mini-stm32v3 copy_mini-stm32v3 info
 btt-skr-mini-e3: $(SRCS) clean gccversion build_btt-skr-mini-e3 copy_btt-skr-mini-e3 info size
 btt-skr-mini-e3_no-btn: $(SRCS) clean gccversion build_btt-skr-mini-e3_no-btn copy_btt-skr-mini-e3_no-btn info size
 btt-skr-mini-e3-2point0: $(SRCS) clean gccversion build_btt-skr-mini-e3-2point0 copy_btt-skr-mini-e3-2point0 info size
+btt-skr-cr6: $(SRCS) clean gccversion build_btt-skr-cr6 copy_btt-skr-cr6 info size
 btt-skr-mini-e3-2point0_no-btn: $(SRCS) clean gccversion build_btt-skr-mini-e3-2point0_no-btn copy_btt-skr-mini-e3-2point0_no-btn info size
 
 build_maple-mini: TARGETFLAGS= -DTARGET_MAPLE_MINI
@@ -199,6 +200,13 @@ build_btt-skr-mini-e3-2point0 : $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET
 copy_btt-skr-mini-e3-2point0: $(BIN_DIR)
 	$(ECHO) "COPY    $(BIN_DIR)/hid_btt_skr_mini_e3_2point0.bin"
 	$(Q)$(CP) $(BUILD_DIR)/$(TARGET).bin $(BIN_DIR)/hid_btt_skr_mini_e3_2point0.bin
+
+build_btt-skr-cr6 : TARGETFLAGS= -DTARGET_BTT_SKR_CR6
+build_btt-skr-cr6 : LINKER_SCRIPT=STM32F103C8T6.ld
+build_btt-skr-cr6 : $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).bin
+copy_btt-skr-cr6: $(BIN_DIR)
+	$(ECHO) "COPY    $(BIN_DIR)/hid_btt_skr_cr6.bin"
+	$(Q)$(CP) $(BUILD_DIR)/$(TARGET).bin $(BIN_DIR)/hid_btt_skr_cr6.bin
 
 build_btt-skr-mini-e3-2point0_no-btn : TARGETFLAGS= -DTARGET_BTT_SKR_MINI_E3_2POINT0
 build_btt-skr-mini-e3-2point0_no-btn : LINKER_SCRIPT=STM32F103C8T6.ld

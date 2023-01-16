@@ -25,6 +25,9 @@ For your convenience, you can find [here](https://github.com/Serasidis/STM32_HID
 
 ## Installing the HID bootloader to STM32 devices
 
+### (BTT SKR CR6)
+
+
 ### (ST-Link version)
 
 1. Download the [latest HID Bootloader](https://github.com/Serasidis/STM32_HID_Bootloader/releases) release
